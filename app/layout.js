@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import { SessionProvider } from "./components/SessionProvider.js";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,17 +14,17 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Trend Tracker",
-  description: "awjhdwahdawdadhadhaud",
+  description: "no description yet",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <link rel="icon" href="/dog.png" />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <SessionProvider>
+          {children}
+        </SessionProvider>
       </body>
     </html>
   );

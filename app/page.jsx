@@ -9,8 +9,12 @@ export default function Home() {
           
           {/* Left section */}
           <div className="flex items-center space-x-2">
+            <a href="/">
             <Image src="/TT.png" alt="Company Logo" className="h-15 w-auto" width="100" height="100"/>
-            <span className="font-bold text-lg">Trend<span style={{color: "#f57f17"}}>T</span>racker</span>
+            </a>
+            <a href="/">
+            <span className="font-bold text-lg">Trend<span style={{ color: "#f57f17", textShadow: '1px 1px 0px black, -1px -1px 0px black, 1px -1px 0px black, -1px 1px 0px black' }}>T</span>racker</span>
+            </a>
           </div>
           
           {/* Middle section */}
@@ -25,7 +29,7 @@ export default function Home() {
           {/* Right section */}
           <div className="flex items-center space-x-4">
           <button className="bg-white text-gray-700 font-medium border border-gray-300 hover:bg-gray-200 hover:text-black px-4 py-2 rounded-lg cursor-pointer">
-            <a href="/login">Log in</a>
+            <a href="/signin">Log in</a>
           </button>
           <button className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 cursor-pointer">
             <a href="/signup">Get Started</a>
