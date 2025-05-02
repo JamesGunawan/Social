@@ -7,7 +7,7 @@ export default function Signup() {
   return (
     <div className="min-h-screen flex flex-col lg:flex-row bg-white">
       {/* Left panel (login) */}
-      <div className="w-full lg:w-1/3 flex flex-col p-8 justify-start bg-white text-black">
+      <div className="w-full lg:w-1/3 flex flex-col p-8 justify-center bg-white text-black">
         {/* Brand logo and name in a row */}
         <div className="flex items-center mb-8">
           <a href="/">
@@ -99,23 +99,24 @@ export default function Signup() {
         </button>
       </div>
 
-      {/* Right panel (feature image and promo text) */}
+      {/* Right panel (motto and branding message) */}
       <div className="hidden lg:flex lg:w-2/3 items-center justify-center bg-[#f57f17] p-10">
         <div className="text-center max-w-md">
-          {/* Placeholder Image */}
+          {/* Optional Brand Visual */}
           <div className="w-full h-64 bg-white mb-6 rounded-lg flex items-center justify-center">
-            <span className="text-[#f57f17] font-bold">[Feature Image]</span>
+            <span className="text-[#f57f17] font-bold text-xl">Where Trends Become Insights</span>
           </div>
 
-          {/* Promo Text */}
-          <h3 className="text-2xl font-bold text-white mb-2">
-            Need help with something? Ask our AI chatbot!
+          {/* Motto / Brand Pitch */}
+          <h3 className="text-3xl font-bold text-white mb-4 leading-snug">
+            Track. Analyze. Stay Ahead.
           </h3>
-          <p className="text-white mt-2">
-            Our AI assistant helps you 24/7 with your questions. Instantly get answers and improve your experience!
+          <p className="text-white text-lg">
+            TrendTracker empowers you with real-time insights to understand what’s hot, what’s next, and why it matters. Join the movement.
           </p>
         </div>
       </div>
+
     </div>
   );
 }

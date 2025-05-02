@@ -10,8 +10,6 @@ let client;
 let clientPromise;
 
 if (!process.env.MONGODB_URI) {
-    console.log(process.env.MONGODB_URI);  // Check if the variable is being loaded
-
     throw new Error('Please add your MONGODB_URI environment variable');
 }
 

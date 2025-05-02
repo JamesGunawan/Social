@@ -29,7 +29,7 @@ export default function Home() {
           {/* Right section */}
           <div className="flex items-center space-x-4">
           <button className="bg-white text-gray-700 font-medium border border-gray-300 hover:bg-gray-200 hover:text-black px-4 py-2 rounded-lg cursor-pointer">
-            <a href="/signin">Log in</a>
+            <a href="/signin">Sign in</a>
           </button>
           <button className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 cursor-pointer">
             <a href="/signup">Get Started</a>
