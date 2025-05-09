@@ -160,18 +160,47 @@ Known Issues and Limitations
 Deployment
 Deployment Architecture
 [Describe how your application is deployed]
-Environment Variables
-[List required environment variables (without values)]
+# Environment Variables
 
-MONGODB_URI=
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
-NEXTAUTH_SECRET=
+```.env.local
+MONGODB_URI=mongodb+srv://username:password@cluster-name.mongodb.net/
+GOOGLE_CLIENT_ID=your-client-id
+GOOGLE_CLIENT_SECRET=your-client-secret
+NEXTAUTH_SECRET=your-nextauth-secret
+```
 
-Build and Deployment Process
-[Step-by-step instructions for building and deploying the application]
+## Setup Instructions
 
+### Clone the Repository
+```bash
+git clone https://github.com/JamesGunawan/TrendTracker.git
+```
 
+### Install Dependencies
+```bash
+npm install
+```
+
+### Set up Environment Variables
+1. Create a `.env.local` file in the root directory of the project.
+2. Add the following environment variables:
+   - `MONGODB_URI`: Your MongoDB Atlas connection string.
+   - `GOOGLE_CLIENT_ID`: Your Google OAuth client ID.
+   - `GOOGLE_CLIENT_SECRET`: Your Google OAuth client secret.
+   - `NEXTAUTH_SECRET`: A secret key for NextAuth.js.
+
+Example `.env` file:
+```makefile
+MONGODB_URI=mongodb+srv://username:password@cluster-name.mongodb.net/
+GOOGLE_CLIENT_ID=your-client-id
+GOOGLE_CLIENT_SECRET=your-client-secret
+NEXTAUTH_SECRET=your-nextauth-secret
+```
+
+### Run Development Server
+```bash
+npm run dev
+```
 
 
 Future Enhancements
@@ -209,26 +238,6 @@ Tools and Resources Used
 
 Conclusion
 [Summarize the project, its value, and your key takeaways from building it]
-
-
-
-
-Appendix
-Setup Instructions
-[Step-by-step instructions for setting up the project locally]
-
-# Clone the repository
-git clone [repository URL]
-
-# Install dependencies
-npm install
-
-# Set up environment variables
-cp .env.example .env.local
-# Edit .env.local with your values
-
-# Run development server
-npm run dev
 
 
 Additional Resources
