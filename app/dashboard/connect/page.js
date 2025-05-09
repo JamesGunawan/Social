@@ -37,8 +37,34 @@ function Connect() {
                     className="h-8 w-8"
                     />
                 }
-                platform="Youtube"
-                isConnected={false}
+                permissionInfo="https://myaccount.google.com/permissions"
+                />
+                <ConnectionCard
+                name="Twitter"
+                description="Manage tweets, followers, and engagement analytics"
+                icon={
+                    <Image
+                    src="/twitter-logo.png"
+                    alt="Twitter"
+                    width={100}
+                    height={100}
+                    className="h-7 w-8 mt-1"
+                    />
+                }
+                permissionInfo="https://myaccount.google.com/permissions"
+                />
+                <ConnectionCard
+                name="Instagram"
+                description="Access post insights, stories, and audience analytics"
+                icon={
+                    <Image
+                    src="/instagram-logo.png"
+                    alt="Instagram"
+                    width={100}
+                    height={100}
+                    className="h-8 w-8"
+                    />
+                }
                 permissionInfo="https://myaccount.google.com/permissions"
                 />
             </div>
