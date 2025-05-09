@@ -10,8 +10,8 @@ export default function calculateFollowersNet(platform, metrics) {
   if (!todayMetrics || !previousDayMetrics) return "0%";
 
   // Get the followers count for today and the previous day
-  const todayFollowers = todayMetrics.subs || 0;
-  const previousFollowers = previousDayMetrics.subs || 0;
+  const todayFollowers = platform === "Youtube" ? todayMetrics.subs || 0 : todayMetrics.followers || 0
+  const previousFollowers = platform === "Youtube" ? previousDayMetrics.subs || 0 : previousDayMetrics.followers || 0;
 
   // Calculate the percentage change
   const difference = todayFollowers - previousFollowers;

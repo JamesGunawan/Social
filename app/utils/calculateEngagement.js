@@ -24,15 +24,24 @@ export default function calculateEngagement(platform, metrics) {
     }
 
     case 'Instagram': {
-      const interactions = (data.likes || 0) + (data.views || 0);
-      const base = data.views || 1;
-      const percentage = (interactions / base) * 100;
-      return `${percentage.toFixed(1)}%`;
+    const likes = data.likes || 0;
+    const impressions = data.impressions || 1; // avoid divide by 0
+    const percentage = (likes / impressions) * 100;
+    return `${percentage.toFixed(1)}%`;
     }
 
     case 'Twitter': {
-      const interactions = (data.retweets || 0) + (data.likes || 0) + (data.replies || 0);
-      const base = data.impressions || 1;
+    const likes = data.likes || 0;
+    const retweets = data.retweets || 0;
+    const impressions = data.impressions || 1; // avoid divide by 0
+    const percentage = ((likes + retweets) / impressions) * 100;
+    return `${percentage.toFixed(1)}%`;
+    }
+
+    case 'Facebook':
+    case 'Linkedin': {
+      const interactions = (data.likes || 0) + (data.shares || 0);
+      const base = data.followers || 1;
       const percentage = (interactions / base) * 100;
       return `${percentage.toFixed(1)}%`;
     }

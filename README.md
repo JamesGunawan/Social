@@ -1,10 +1,10 @@
-[Project Title Trend Tracker]
+[Trend Tracker]
 Project Overview
 Industry: [Banking/Technology/Healthcare/Construction/Automotive/Pharmaceutical]
 Developer: [Your Name]
 Completion Date: [MM/DD/YYYY]
-GitHub Repository: [Link to your repository]
-Trello [Trello Board]
+GitHub Repository: [https://github.com/JamesGunawan/TrendTracker]
+Project Board [https://github.com/users/JamesGunawan/projects/23/views/1]
 Live Demo: [Link to deployed application]
 
 
@@ -163,10 +163,10 @@ Deployment Architecture
 Environment Variables
 [List required environment variables (without values)]
 
-DATABASE_URL=
-AUTH_SECRET=
-AI_API_KEY=
-
+MONGODB_URI=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+NEXTAUTH_SECRET=
 
 Build and Deployment Process
 [Step-by-step instructions for building and deploying the application]

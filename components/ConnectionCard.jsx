@@ -31,7 +31,7 @@ function ConnectionCard({ name, description, icon, permissionInfo }) {
 
   if (isLoading) {
     return (
-      <div className="w-full sm:w-[400px] md:w-[500px] lg:w-[600px] min-w-[280px] max-w-full border border-[#e0e0e0] rounded-xl overflow-hidden bg-white shadow-sm animate-pulse">
+      <div className="w-full sm:w-[400px] md:w-[500px] lg:w-[400px] min-w-[280px] max-w-full border border-[#e0e0e0] rounded-xl overflow-hidden bg-white shadow-sm animate-pulse">
         <div className="px-6 pt-6 pb-4">
           <div className="flex justify-between items-start mb-4">
             <div className="flex items-center gap-3">
@@ -52,7 +52,7 @@ function ConnectionCard({ name, description, icon, permissionInfo }) {
   }
 
   return (
-    <div className="w-full sm:w-[400px] md:w-[500px] lg:w-[600px] min-w-[280px] max-w-full border border-[#e0e0e0] rounded-xl overflow-hidden bg-white shadow-sm flex flex-col h-[200px]">
+    <div className="w-full sm:w-[400px] md:w-[500px] lg:w-[400px] min-w-[280px] max-w-full border border-[#e0e0e0] rounded-xl overflow-hidden bg-white shadow-sm flex flex-col h-[200px]">
       <div className="px-6 pt-6 pb-4">
         <div className="flex justify-between items-start mb-4">
           <div className="flex items-center gap-3">

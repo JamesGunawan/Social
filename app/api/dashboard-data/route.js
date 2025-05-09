@@ -18,7 +18,7 @@ export async function GET(req) {
   await client.connect();
 
   const db = client.db('oauth-connections');
-  const supportedPlatforms = ['Youtube', 'Twitter', 'Instagram'];
+  const supportedPlatforms = ['Youtube', 'Twitter', 'Instagram', "Facebook", "Linkedin"];
 
   const results = {};
 

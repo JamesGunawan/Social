@@ -1,10 +1,18 @@
 "use client";
 
+import { getPlatformList } from "@/app/context/PlatformList";
 import ConnectionCard from "@/components/ConnectionCard";
 import { AlertCircle } from "lucide-react";
 import Image from "next/image";
+import { useEffect } from "react";
 
 function Connect() {
+    const { refresh } = getPlatformList();
+
+    useEffect(() => {
+        refresh();
+    },[])
+
     return (
         <>
         <div className="flex-1 space-y-6 p-6">
@@ -24,7 +32,7 @@ function Connect() {
                     </p>
                 </div>
             </div>
-            <div className="grid grid-cols-3 gap-6 text-center p-5  ">
+            <div className="flex flex-wrap gap-12 justify-center p-5">
                 <ConnectionCard
                 name="Youtube"
                 description="Access YouTube analytics and channel management"
@@ -63,6 +71,34 @@ function Connect() {
                     width={100}
                     height={100}
                     className="h-8 w-8"
+                    />
+                }
+                permissionInfo="https://myaccount.google.com/permissions"
+                />
+                <ConnectionCard
+                name="Facebook"
+                description="Manage posts, page insights, and follower analytics"
+                icon={
+                    <Image
+                    src="/facebook-logo.png"
+                    alt="Facebook"
+                    width={100}
+                    height={100}
+                    className="h-8 w-8"
+                    />
+                }
+                permissionInfo="https://myaccount.google.com/permissions"
+                />
+                <ConnectionCard
+                name="Linkedin"
+                description="Track posts, professional reach, and audience engagement"
+                icon={
+                    <Image
+                    src="/linkedin-logo.png"
+                    alt="LinkedIn"
+                    width={100}
+                    height={100}
+                    className="h-8 w-8 rounded"
                     />
                 }
                 permissionInfo="https://myaccount.google.com/permissions"
