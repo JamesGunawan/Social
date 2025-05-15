@@ -40,32 +40,39 @@ export default function Signup() {
         <h2 className="text-4xl font-bold mb-6">Sign Up</h2>
 
         {/* Form fields */}
-        <form className="flex flex-col gap-5 mt-10">
-          <input
-            type="email"
-            placeholder="Email"
-            className="p-3 rounded-lg border border-black bg-white placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-[#f57f17]"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="p-3 rounded-lg border border-black bg-white placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-[#f57f17]"
-          />
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            className="p-3 rounded-lg border border-black bg-white placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-[#f57f17]"
-          />
+        <div className="relative">
+          <form className="flex flex-col gap-5 mt-10">
+            <input
+              type="email"
+              placeholder="Email"
+              className="p-3 rounded-lg border border-black bg-white placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-[#f57f17]"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              className="p-3 rounded-lg border border-black bg-white placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-[#f57f17]"
+            />
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              className="p-3 rounded-lg border border-black bg-white placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-[#f57f17]"
+            />
 
-          {/* Sign Up button */}
-          <button
-            type="button"
-            onClick={() => {}}
-            className="bg-black hover:bg-gray-900 text-white font-bold py-3 rounded-lg mt-6 cursor-pointer"
-          >
-            Sign up
-          </button>
-        </form>
+            {/* Sign Up button */}
+            <button
+              type="button"
+              onClick={() => {}}
+              className="bg-black hover:bg-gray-900 text-white font-bold py-3 rounded-lg mt-6 cursor-pointer"
+            >
+              Sign up
+            </button>
+          </form>
+            <div className="absolute top-0 left-0 w-full h-full bg-gray-500/40 shadow-md flex items-center justify-center pointer-events-auto z-10 rounded">
+                <p className="text-black text-center text-lg font-medium px-4 py-2 bg-white rounded">
+                  For demo purposes sign up with Google
+                </p>
+            </div>
+        </div>
 
         {/* Have an account? */}
         <div className="mt-2 text-sm text-center">

@@ -41,6 +41,7 @@ function Signin() {
             <h2 className="text-4xl font-bold mb-6">Sign in</h2>
     
             {/* Form fields */}
+            <div className="relative">
             <form className="flex flex-col gap-5 mt-10">
                 <input
                 type="email"
@@ -63,6 +64,12 @@ function Signin() {
                 Sign in
                 </button>
             </form>
+                <div className="absolute top-0 left-0 w-full h-full bg-gray-500/40 shadow-md flex items-center justify-center pointer-events-auto z-10 rounded">
+                    <p className="text-black text-center text-lg font-medium px-4 py-2 bg-white rounded">
+                        For demo purposes please sign in with Google
+                    </p>
+                </div>
+            </div>
     
             {/* Have an account? */}
             <div className="mt-2 text-sm text-center">
