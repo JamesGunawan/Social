@@ -2,6 +2,7 @@
 
 import { signIn } from 'next-auth/react';
 import Image from "next/image";
+import Link from 'next/link';
 
 function Signin() {
     return(
@@ -11,7 +12,7 @@ function Signin() {
             <div className="w-full lg:w-1/3 flex flex-col p-8 justify-center bg-white text-black">
             {/* Brand logo and name in a row */}
             <div className="flex items-center mb-8">
-                <a href="/">
+                <Link href="/">
                 <Image
                     src="/TT.png"
                     alt="Logo"
@@ -19,8 +20,8 @@ function Signin() {
                     height={1000}
                     className="h-auto w-20 cursor-pointer"
                 />
-                </a>
-                <a href="/">
+                </Link>
+                <Link href="/">
                 <span className="font-bold text-lg ml-2 cursor-pointer">
                     Trend
                     <span
@@ -34,7 +35,7 @@ function Signin() {
                     </span>
                     racker
                 </span>
-                </a>
+                </Link>
             </div>
     
             {/* Sign Up title */}
@@ -74,9 +75,9 @@ function Signin() {
             {/* Have an account? */}
             <div className="mt-2 text-sm text-center">
                 Need an account?{' '}
-                <a href="/signup" className="underline text-[#f57f17] hover:text-black">
+                <Link href="/signup" className="underline text-[#f57f17] hover:text-black">
                 Sign up
-                </a>
+                </Link>
             </div>
     
             {/* OR Divider */}

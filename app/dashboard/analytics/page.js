@@ -8,6 +8,7 @@ import mergePlatformMetricsByDate from "@/app/utils/mergePlatformMetricsByDate";
 import { getTotalEngagementStats } from "@/app/utils/totalEngagement";
 import { UsersRound, ChartColumn } from "lucide-react";
 import TrendAnalysisChart from "@/components/TrendAnalysiCharts";
+import Link from "next/link";
 
 export default function ConnectPage() {
   const { platforms } = getPlatformList();
@@ -39,7 +40,7 @@ export default function ConnectPage() {
 
       {platforms.length === 0 ? (
         <div className=" flex justify-center w-full bg-white p-6 rounded shadow border-[#e5e7eb] border-1 text-xl font-semibold">
-              <a href="/dashboard/connect"><span className="underline text-gray-700 hover:text-gray-900">Connect</span></a><p>‎ to a platform to get started</p>
+              <Link href="/dashboard/connect"><span className="underline text-gray-700 hover:text-gray-900">Connect</span></Link><p>‎ to a platform to get started</p>
             </div>
       ) : (
         <div className="flex gap-6 justify-center p-4">

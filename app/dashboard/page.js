@@ -10,13 +10,14 @@ import mergePlatformMetricsByDate from '../utils/mergePlatformMetricsByDate';
 import { useEffect } from 'react';
 import FollowerChart from '@/components/FollowerChart';
 import mergeFollowerMetricsByDate from '../utils/mergeFollowerMetricsByDate';
+import Link from 'next/link';
 
 function Dashboard() {
   const { platforms, refresh } = getPlatformList();    
   
       useEffect(() => {
           refresh();
-      },[])
+      },[]) 
 
   //   platforms.forEach(({ name, data }) => {
   //   console.log('Connected to:', name);
@@ -27,8 +28,6 @@ function Dashboard() {
   const mergedEngagementData = mergePlatformMetricsByDate(connectedPlatforms);
   const mergedFollowerData = mergeFollowerMetricsByDate(connectedPlatforms); 
   const platformNames = connectedPlatforms.map(p => p.name);
-  const followerData = platforms
-console.log("mergedData", mergedEngagementData);
 
   return (
     <div className="relative">
@@ -39,7 +38,7 @@ console.log("mergedData", mergedEngagementData);
         <div className="flex gap-6 text-center p-5 flex-nowrap">
           {platforms.length === 0 ? (
             <div className="w-full bg-white p-6 rounded shadow border-[#e5e7eb] border-1 text-xl font-semibold">
-              <a href="/dashboard/connect"><span className="underline text-gray-700 hover:text-gray-900">Connect</span></a> to a platform to get started
+              <Link href="/dashboard/connect"><span className="underline text-gray-700 hover:text-gray-900">Connect</span></Link><p>to a platform to get started</p>
             </div>
           ) : (
             platforms.map(({ name, data }) => {

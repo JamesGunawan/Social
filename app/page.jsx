@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -9,7 +10,7 @@ export default function Home() {
           
           {/* Left section */}
           <div className="flex items-center space-x-2">
-            <a href="/">
+            <Link href="/">
             <Image 
             src="/TT.png" 
             alt="Company Logo" 
@@ -17,28 +18,28 @@ export default function Home() {
             width="100" 
             height="100"
             />
-            </a>
-            <a href="/">
+            </Link>
+            <Link href="/">
             <span className="font-bold text-lg">Trend<span style={{ color: "#f57f17", textShadow: '1px 1px 0px black, -1px -1px 0px black, 1px -1px 0px black, -1px 1px 0px black' }}>T</span>racker</span>
-            </a>
+            </Link>
           </div>
           
           {/* Middle section */}
           <nav className="hidden md:flex space-x-6 text-gray-700 font-medium">
-          <a href="#" className="hover:text-black">Integrations</a>
-          <a href="#" className="hover:text-black">About Us</a> 
-          <a href="#" className="hover:text-black">Services</a>
-          <a href="#" className="hover:text-black">Blog</a>
-          <a href="#" className="hover:text-black">Pricing</a>
+          <Link href="#" className="hover:text-black">Integrations</Link>
+          <Link href="#" className="hover:text-black">About Us</Link> 
+          <Link href="#" className="hover:text-black">Services</Link>
+          <Link href="#" className="hover:text-black">Blog</Link>
+          <Link href="#" className="hover:text-black">Pricing</Link>
           </nav>
           
           {/* Right section */}
           <div className="flex items-center space-x-4">
           <button className="bg-white text-gray-700 font-medium border border-gray-300 hover:bg-gray-200 hover:text-black px-4 py-2 rounded-lg cursor-pointer">
-            <a href="/signin">Sign in</a>
+            <Link href="/signin">Sign in</Link>
           </button>
           <button className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 cursor-pointer">
-            <a href="/signup">Get Started</a>
+            <Link href="/signup">Get Started</Link>
           </button>
           </div>
 
@@ -58,7 +59,7 @@ export default function Home() {
 
       <div className="flex space-x-4">
         <button className="flex items-center gap-2 bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition cursor-pointer">
-            <a href="/signup">Get Started</a>
+            <Link href="/signup">Get Started</Link>
           <span className="text-lg">→</span>
         </button>
 

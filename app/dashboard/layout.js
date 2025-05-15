@@ -62,7 +62,7 @@ export default function DashboardLayout({ children }) {
             <div className="top-0 z-10 flex h-14 items-center justify-between mb-5 border-b-1 border-[#e0e0e0]">
               <div className="flex items-center gap-2">
               <Image src="/TT.png" alt="Company Logo" className="w-auto h-10 ml-0.5" width="100" height="100"/>
-              <span className="text-xl font-bold">TrendTracker</span>
+              <span className="font-bold text-xl">Trend<span style={{ color: "#f57f17", textShadow: '1px 1px 0px black, -1px -1px 0px black, 1px -1px 0px black, -1px 1px 0px black' }}>T</span>racker</span>
               </div>
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
