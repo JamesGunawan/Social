@@ -37,8 +37,8 @@ function Dashboard() {
       <div className="overflow-x-auto max-w-screen-xl2">
         <div className="flex gap-6 text-center p-5 flex-nowrap">
           {platforms.length === 0 ? (
-            <div className="w-full bg-white p-6 rounded shadow border-[#e5e7eb] border-1 text-xl font-semibold">
-              <Link href="/dashboard/connect"><span className="underline text-gray-700 hover:text-gray-900">Connect</span></Link><p>to a platform to get started</p>
+            <div className="w-full bg-white p-6 rounded shadow border-[#e5e7eb] border-1 text-xl font-semibold flex items-center justify-center">
+              <Link href="/dashboard/connect"><span className="underline text-gray-700 hover:text-gray-900">Connect</span></Link><p>‎ to a platform to get started</p>
             </div>
           ) : (
             platforms.map(({ name, data }) => {
