@@ -6,15 +6,29 @@ import { getPlatformList } from '../context/PlatformList';
 import calculateEngagement from '../utils/calculateEngagement';
 import { platformIconConfigs } from '../utils/platformIconConfigs';
 import calculateFollowersNet from '../utils/calculateFollowersNet';
-import { useSession } from 'next-auth/react';
+import mergePlatformMetricsByDate from '../utils/mergePlatformMetricsByDate';
+import { useEffect } from 'react';
+import FollowerChart from '@/components/FollowerChart';
+import mergeFollowerMetricsByDate from '../utils/mergeFollowerMetricsByDate';
 
 function Dashboard() {
-  const { platforms } = getPlatformList();
+  const { platforms, refresh } = getPlatformList();    
+  
+      useEffect(() => {
+          refresh();
+      },[])
 
   //   platforms.forEach(({ name, data }) => {
   //   console.log('Connected to:', name);
   //   console.log('Data:', data);
   // });
+
+  const connectedPlatforms = platforms.filter(p => p.data.isConnected);
+  const mergedEngagementData = mergePlatformMetricsByDate(connectedPlatforms);
+  const mergedFollowerData = mergeFollowerMetricsByDate(connectedPlatforms); 
+  const platformNames = connectedPlatforms.map(p => p.name);
+  const followerData = platforms
+console.log("mergedData", mergedEngagementData);
 
   return (
     <div className="relative">
@@ -50,8 +64,6 @@ function Dashboard() {
 
               const followersNet = calculateFollowersNet(name, data);
 
-              console.log(name, data);
-
               return (
                 <div key={name}>
                   <PlatformCard
@@ -69,17 +81,22 @@ function Dashboard() {
           )}
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-6 text-center p-5">
-        <div className="bg-white p-6 rounded shadow border-[#e5e7eb] border-1"> 
-          <p className="text-2xl font-bold mt-2">Engagement</p>
-          <EngagementChart/>
-        </div>
-
-        <div className="bg-white p-6 rounded shadow border-[#e5e7eb] border-1"> 
-          <p className="text-2xl font-bold mt-2">Followers</p>
-          <EngagementChart/>
-        </div>
-      </div>
+      {platforms.length === 0 ? null : (
+      <EngagementChart
+        title="Engagement Overview"
+        subtitle="Engagement over time"
+        data={mergedEngagementData}
+        platforms={platformNames}
+      />
+    )}
+      {platforms.length === 0 ? null : (
+        <FollowerChart
+          title="Follower Growth"
+          subtitle="Follower growth over time"
+          data={mergedFollowerData}
+          platforms={platformNames}
+        />
+      )}
     </div> 
   );
 }

@@ -1,19 +1,16 @@
-export default function calculateEngagement(platform, metrics) {
+export default function calculateEngagement(platform, metrics, targetDate = new Date()) {
   if (!metrics?.metrics) return "0%";
 
   // Find the metrics for today
-  const todayMetrics = metrics.metrics.find(metric => {
+  const data = metrics.metrics.find(metric => {
     // Only compare the date part, ignoring the time
     const metricDate = new Date(metric.date);
-    const today = new Date();
-    return metricDate.getDate() === today.getDate() &&
-           metricDate.getMonth() === today.getMonth() &&
-           metricDate.getFullYear() === today.getFullYear();
+    return metricDate.getDate() === targetDate.getDate() &&
+           metricDate.getMonth() === targetDate.getMonth() &&
+           metricDate.getFullYear() === targetDate.getFullYear();
   });
 
-  if (!todayMetrics) return "0%"; // No data for today
-
-  const data = todayMetrics;
+  if (!data) return "0%"; // No data for today
 
   switch (platform) {
     case 'Youtube': {
@@ -25,7 +22,7 @@ export default function calculateEngagement(platform, metrics) {
 
     case 'Instagram': {
     const likes = data.likes || 0;
-    const impressions = data.impressions || 1; // avoid divide by 0
+    const impressions = data.impressions || 1; 
     const percentage = (likes / impressions) * 100;
     return `${percentage.toFixed(1)}%`;
     }
@@ -33,7 +30,7 @@ export default function calculateEngagement(platform, metrics) {
     case 'Twitter': {
     const likes = data.likes || 0;
     const retweets = data.retweets || 0;
-    const impressions = data.impressions || 1; // avoid divide by 0
+    const impressions = data.impressions || 1; 
     const percentage = ((likes + retweets) / impressions) * 100;
     return `${percentage.toFixed(1)}%`;
     }

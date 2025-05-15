@@ -104,7 +104,7 @@ export default function Signup() {
         <div className="text-center max-w-md">
           {/* Optional Brand Visual */}
           <div className="w-full h-64 bg-white mb-6 rounded-lg flex items-center justify-center">
-            <span className="text-[#f57f17] font-bold text-xl">Where Trends Become Insights</span>
+            <span className="text-[#f57f17] font-bold text-xl">[Feature Image]</span>
           </div>
 
           {/* Motto / Brand Pitch */}
@@ -116,7 +116,6 @@ export default function Signup() {
           </p>
         </div>
       </div>
-
     </div>
   );
 }

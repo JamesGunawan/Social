@@ -80,10 +80,6 @@ export default function DashboardLayout({ children }) {
                 <Activity className="mr-2 shrink-0"/>
                 <span className="text-base">Analytics</span>
               </Link>
-              <Link href="/dashboard/reports" className={linkClass("/dashboard/reports")}>
-                <ChartPie className="mr-2 shrink-0"/>
-                <span className="text-base">Reports</span>
-              </Link>
               <Link href="/dashboard/connect" className={linkClass("/dashboard/connect")}>
                 <Unplug className="mr-2 shrink-0"/>
                 <span className="text-base">Connect</span>

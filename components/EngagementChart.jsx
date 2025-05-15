@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useMemo } from "react";
 import {
   LineChart,
   Line,
@@ -8,37 +9,84 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer,
+  ResponsiveContainer
 } from 'recharts';
 
-const data = [
-  { name: "Jan", Facebook: 4.2, Twitter: 3.8, Instagram: 5.1, LinkedIn: 2.3 },
-  { name: "Feb", Facebook: 4.5, Twitter: 3.5, Instagram: 5.3, LinkedIn: 2.5 },
-  { name: "Mar", Facebook: 4.3, Twitter: 3.2, Instagram: 5.0, LinkedIn: 2.8 },
-  { name: "Apr", Facebook: 4.0, Twitter: 3.9, Instagram: 4.8, LinkedIn: 3.0 },
-  { name: "May", Facebook: 4.1, Twitter: 4.2, Instagram: 4.5, LinkedIn: 3.2 },
-  { name: "Jun", Facebook: 4.4, Twitter: 4.0, Instagram: 4.7, LinkedIn: 3.5 },
-  { name: "Jul", Facebook: 4.6, Twitter: 3.8, Instagram: 5.2, LinkedIn: 3.3 },
-];
+const getPlatformColor = (platform) => {
+  const colors = {
+    YouTube: "#FF0000",
+    Twitter: "#1DA1F2",
+    Instagram: "#E1306C",
+    Facebook: "#3b5998",
+    Linkedin: "#0077b5",
+    TikTok: "#010101",
+  };
+  return colors[platform] || "#8884d8";
+};
 
-function EngagementChart() {
+const filterOptions = ['Weekly', 'Monthly'];
+
+function EngagementChart({ data, title, subtitle, platforms }) {
+  const [filter, setFilter] = useState("Monthly");
+
+  // Convert MM-DD to actual Date object using current year
+  const chartData = useMemo(() => {
+    const now = new Date();
+    const currentYear = now.getFullYear();
+
+    const cutoff = new Date(now);
+    cutoff.setDate(now.getDate() - (filter === "Weekly" ? 7 : 30));
+
+    return data.filter((d) => {
+      const [month, day] = d.name.split('-').map(Number);
+      const entryDate = new Date(currentYear, month - 1, day);
+      return entryDate >= cutoff;
+    });
+  }, [data, filter]);
+
   return (
-    <div className="w-full h-[350px] bg-white p-4 rounded-xl shadow">
-      <h2 className="text-lg font-semibold mb-4">Engagement Rate Over Time</h2>
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis unit="%" />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="Facebook" stroke="#3b5998" strokeWidth={2} />
-          <Line type="monotone" dataKey="Twitter" stroke="#1DA1F2" strokeWidth={2} />
-          <Line type="monotone" dataKey="Instagram" stroke="#E1306C" strokeWidth={2} />
-          <Line type="monotone" dataKey="LinkedIn" stroke="#0077b5" strokeWidth={2} />
-        </LineChart>
-      </ResponsiveContainer>
+    <div className="bg-white p-6 rounded shadow border border-[#e5e7eb] w-full h-[400px] flex flex-col gap-4 text-center">
+    <p className="text-2xl font-bold">{title}</p>
+
+    <div className="flex items-center justify-center">
+      <div className="flex gap-2">
+        {filterOptions.map(option => (
+          <button
+            key={option}
+            onClick={() => setFilter(option)}
+            className={`px-3 py-1 rounded-md text-sm border cursor-pointer transition-colors duration-200 ${
+              filter === option
+                ? "bg-black text-white hover:bg-gray-700"
+                : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+            }`}
+          >
+            {option}
+          </button>
+        ))}
+      </div>
     </div>
+
+    <ResponsiveContainer width="100%" height="100%">
+      <LineChart data={chartData}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        {platforms.map((platform) => (
+          <Line
+            key={platform}
+            type="monotone"
+            dataKey={platform}
+            stroke={getPlatformColor(platform)}
+            strokeWidth={2}
+          />
+        ))}
+      </LineChart>
+    </ResponsiveContainer>
+
+    <p className="text-sm text-gray-500 -mt-3">{subtitle}</p>
+  </div>
   );
 }
 
