@@ -5,7 +5,7 @@ Industry: Technology
 
 Developer: James Gunawan
 
-Completion Date: 02/20/2023
+Completion Date: 5/16/2025
 
 GitHub Repository: https://github.com/JamesGunawan/TrendTracker
 
